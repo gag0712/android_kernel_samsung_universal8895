@@ -5483,3 +5483,26 @@ CONFIG_ARCH_HAS_ATOMIC64_DEC_IF_POSITIVE=y
 CONFIG_LIBFDT=y
 # CONFIG_SG_SPLIT is not set
 CONFIG_ARCH_HAS_SG_CHAIN=y
+
+# Fix freeze/reset
+CONFIG_NETFILTER_XT_MATCH_QTAGUID=n
+# Fix no network inside container
+CONFIG_ANDROID_PARANOID_NETWORK=n
+# Fix postgres shmem problem
+CONFIG_SYSVIPC=y
+# Overlay2 with Native Diff support
+CONFIG_OVERLAY_FS=y
+# Others required by Docker
+CONFIG_BRIDGE=y
+CONFIG_BRIDGE_NETFILTER=y
+CONFIG_NETFILTER_XT_MATCH_ADDRTYPE=y
+CONFIG_NETFILTER_XT_MATCH_IPVS=y
+CONFIG_IP_VS=y
+CONFIG_IP_VS_NFCT=y
+CONFIG_IP_VS_PROTO_TCP=y
+CONFIG_IP_VS_PROTO_UDP=y
+CONFIG_IP_VS_RR=y
+
+# Testing
+CONFIG_BLK_CGROUP=y
+CONFIG_CMDLINE="loop.max_part=7 cgroup_enable=blkio,cpu,cpuacct,devices,freezer,memory,pids,schedtune buildvariant=eng"
